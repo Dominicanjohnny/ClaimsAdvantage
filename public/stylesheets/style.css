@@ -5,4 +5,91 @@ body {
 
 a {
   color: #00B7FF;
+  /*background-color: #000080;*/
+}
+
+.main-container {
+  padding-top: 25px;
+}
+
+nav.navbar {
+  box-shadow: 0px 4px 10px 0 rgba(22,22,22,0.08);
+  margin-bottom: 0;
+  background-color: #2B65EC;
+
+
+}
+
+.nav > li > a {
+  color: black;
+
+}
+
+.nav > li.nav-logo {
+  width: 174px;
+  display: block;
+  position: absolute;
+  left: 50%;
+  margin-left: -87px;
+}
+
+.nav-logo-image {
+  height: auto;
+  width: auto;
+  max-height: 250px;
+  max-width:  200px;
+  padding-right: -100px;
+  padding: 10px;
+}
+
+
+.nav > .li-logout {
+  padding: 7px;
+}
+
+.btn-logout {
+  color: black;
+  padding: 15px;
+  border: 0;
+}
+
+.home-heading {
+  background-color: #808080;
+  height: 75vh;
+  padding: 0 30%;
+  position: relative;
+}
+.home-heading-logo {
+  height: 250px;
+  width: 350px;
+  padding: 20px;
+}
+
+.home-heading-wrapper {
+  padding: 0 5%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.home-heading-wrapper-image {
+  height: 375px;
+  width: 400;
+
+}
+.home-heading-wrapper > h1 {
+  font-size: 3rem;
+
+}
+
+.home-heading-wrapper > h1 > p {
+  font-size: 3rem;
+  color: #fff;
+}
+
+.first-section {
+  background-image: url(/images/Insurance-policy-image.jpg);
+  background-size: cover;
+  height: 800px;
 }
