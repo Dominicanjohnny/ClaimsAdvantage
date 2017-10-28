@@ -6,7 +6,12 @@
   </head>
 
   <body>
-
+    <section>
+      <% pictures.forEach(function(picture) { %>
+        <h3><%= picture.name %></h3>
+        <img src="<%= picture.pic_path %>" alt="<%= picture.pic_name %>" />
+      <% })%>
+    </section>
     <div class="container-fluid">
       <div class="home-heading text-center row first-section">
         <div class="home-heading-wrapper">
@@ -26,6 +31,7 @@
       <p> <h2> 12 </h2> Hours in lost paperwork. </p>
       <p> <h2> 20 </h2> Hours searcing for information. </p>
       <p> <h2> 45 </h2> Hours in manual filing. </p>
+      <p> for Only <h2>$9.99 a month!!</h2> </h1> </p>
     </div>
   </div>
 </div>
@@ -40,5 +46,16 @@
 </div>
 </div>
 </div>
+
+<!-- <section>
+  <h2>Upload your photo</h2>
+  <form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="text" name="name">
+    <input type="file" name="photo">
+    <input type="submit" value="Save">
+  </form>
+</section> -->
+
+
   </body>
 </html>

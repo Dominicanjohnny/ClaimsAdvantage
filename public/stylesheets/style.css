@@ -93,3 +93,12 @@ nav.navbar {
   background-size: cover;
   height: 800px;
 }
+
+.col-sm-10 {
+  height: 100px;
+  width: 200px;
+  border: 2;
+}
+.newClaim {
+  c
+}

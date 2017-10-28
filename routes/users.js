@@ -1,9 +1,17 @@
 var express = require('express');
 var router = express.Router();
+const User  = require('../models/user');
+const Claim = require('../models/Claim');
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+
+router.get('/profile', (req, res, next) => {
+  Claim.find({homeowner: req.user._id}, (err, claims) =>{
+    if (err) { return next(err); }
+    res.render('profiles.ejs', {claims} );
+
+  });
+}
+
+)
 
 module.exports = router;

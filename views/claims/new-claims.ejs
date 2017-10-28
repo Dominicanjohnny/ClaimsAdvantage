@@ -1,14 +1,18 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-6 centered-form">
-      <form action="/signup" method="post">
+      <form action="/new-claim" method="post">
         <div class="form-group">
-          <label for="username">Username</label>
-          <input type="text" name="username" class="form-control">
+          <label for="email">Dol</label>
+          <input type="text" name="dol" class="form-control">
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
-          <input type="text" name="email" class="form-control">
+          <label for="email">Policy Number</label>
+          <input type="text" name="policyNumber" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="email">Deductible</label>
+          <input type="text" name="deductible" class="form-control">
         </div>
         <div class="form-group">
           <label for="description">Description</label>
@@ -22,12 +26,9 @@
          <label for="upload" class="uploadButton">Upload</label>
          <input type="file" name="upload" id="upload">
         </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" name="password" class="form-control">
-        </div>
 
-        <button type="submit">Signup</button>
+
+        <button type="submit">New Claim</button>
       </form>
     </div>
   </div>

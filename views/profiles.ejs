@@ -1,0 +1,51 @@
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+
+  <body>
+    <div class="main-container">
+  <div class="row">
+    <div class="col-sm-2">
+<!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkq8TQw_GdqB6wQciWU7niYJtGxtjtwbJBcHyWIUTBriDBzsK7"><br> -->
+
+    </div>
+    <div class="col-sm-10">
+      <h1>  Claim Bucket </h1>
+    <p> <% claims.forEach(function(claim){ %>
+        <%= claim.dol %>
+        <%= claim.policynumber %>
+        <%= claim.deductible %>
+        <%= claim.typeofdamage %>
+        <%= claim.insurance %>
+        <%= claim.urlImage %>
+
+
+      </p>
+       <a class="btn backer-btn" href="/claim %>/edit">Edit This Claim</a> <br>
+
+    <form action="/claim/<%= claim._id %>/delete" method="POST">
+      <button type="submit">Delete </button>
+    </form>
+      <% }) %>
+        <a class="btn backer-btn" href="/newClaim">back to claims</a>
+    </div>
+  </div>
+
+</body>
+</html>
+  <!-- </div>
+    <section>
+      <% claims.forEach(function(claim){ %>
+        <%= claim.dol %>
+        <%= claim.policynumber %>
+        <%= claim.deductible %>
+        <%= claim.typeofdamage %>
+        <%= claim.insurance %>
+    </section>
+  </body>
+<% }) %> -->

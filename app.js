@@ -8,6 +8,8 @@ const session            = require('express-session');
 const MongoStore         = require('connect-mongo')(session);
 const express            = require('express');
 const path               = require('path');
+const Picture            = require('./models/pictures');
+const multer             = require('multer');
 const favicon            = require('serve-favicon');
 const logger             = require('morgan');
 const cookieParser       = require('cookie-parser');
@@ -15,9 +17,10 @@ const bodyParser         = require('body-parser');
 const expressLayouts     = require('express-ejs-layouts');
 const mongoose           = require('mongoose');
 const authRoutes = require('./routes/authentication.js');
+const Claim = require('./models/Claim');
 
 
-mongoose.connect('mongodb://localhost:27017/ironfunds-development');
+mongoose.connect('mongodb://localhost:27017/claims-advantage');
 
 
 const app = express();
@@ -62,14 +65,14 @@ passport.use('local-signup', new LocalStrategy(
                 return next(null, false);
             } else {
                 // Destructure the body
-                const { Username, Email, Description, Insurance, Password } = req.body;
+                const { username, email, description, insurance, password } = req.body;
                 const hashPass = bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
                 const newUser = new User({
-                  Username,
-                  Email,
-                  Description,
-                  Insurance,
-                  Password: hashPass
+                  username,
+                  email,
+                  description,
+                  insurance,
+                  password: hashPass
                 });
 
                 newUser.save((err) => {
@@ -101,6 +104,14 @@ passport.use('local-login', new LocalStrategy((username, password, next) => {
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use( (req, res, next) => {
+  if (req.user) {
+    res.locals.user = req.user;
+  }
+  next();
+});
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -121,6 +132,14 @@ app.use( (req, res, next) => {
 const index = require('./routes/index');
 app.use('/', index);
 app.use('/', authRoutes);
+const claimRoutes = require('./routes/claims.js');
+app.use('/', claimRoutes);
+const userRoutes = require('./routes/users');
+app.use('/', userRoutes);
+
+
+
+
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
   const err = new Error('Not Found');
